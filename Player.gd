@@ -10,7 +10,7 @@ var next_idle_animation:String
 
 var move_direction = Vector2.ZERO
 
-func _process(delta):
+func _process(_delta):
 	character_animation()
 
 func _physics_process(delta: float) -> void:
@@ -19,7 +19,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func character_animation():
-	var walk_animation:String 
 	if Input.is_action_pressed("up"):
 		anim.play("walk_up")	
 		next_idle_animation = "idle_up"
