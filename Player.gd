@@ -11,37 +11,29 @@ var next_idle_animation:String
 var move_direction = Vector2.ZERO
 
 func _process(delta):
-	character_movement()
+	character_animation()
 
 func _physics_process(delta: float) -> void:
-	velocity = move_direction * SPEED * delta
+	var rotation_direction = Input.get_vector("left", "right", "up", "down")
+	velocity = rotation_direction * SPEED * delta
 	move_and_slide()
-	move_direction = Vector2.ZERO
 	
-func character_movement():
+func character_animation():
 	var walk_animation:String 
 	if Input.is_action_pressed("up"):
-		walk_animation = "walk_up"
-		move_direction.y = -1
+		anim.play("walk_up")	
 		next_idle_animation = "idle_up"
-	if Input.is_action_pressed("down"):
-		move_direction.y = 1
-		walk_animation = "walk_down"
+	elif Input.is_action_pressed("down"):
+		anim.play("walk_down")	
 		next_idle_animation = "idle_down"		
-	if Input.is_action_pressed("left"):
-		move_direction.x = -1
-		walk_animation = "walk_left"		
+	elif Input.is_action_pressed("left"):
+		anim.play("walk_left")			
 		next_idle_animation = "idle_left"		
-	if Input.is_action_pressed("right"):
-		move_direction.x = 1
-		walk_animation = "walk_right"		
+	elif Input.is_action_pressed("right"):
+		anim.play("walk_right")		
 		next_idle_animation = "idle_right"
-	
-	move_direction.normalized()
-	
-	if move_direction == Vector2.ZERO:
-		anim.play(next_idle_animation)
 	else:
-		anim.play(walk_animation)
+		anim.play(next_idle_animation)
+		
 		
 	
