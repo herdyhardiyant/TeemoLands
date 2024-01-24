@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://77bx1edu1efh"]
+[gd_scene load_steps=16 format=3 uid="uid://77bx1edu1efh"]
 
 [ext_resource type="PackedScene" uid="uid://bfu0gy3qec6g5" path="res://scenes/player.tscn" id="1_05yus"]
 [ext_resource type="Texture2D" uid="uid://bct4l5i8vfaab" path="res://Sprout Lands/Sprite Basic/Tilesets/Grass.png" id="2_8c1s8"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://f62gafq0m484" path="res://Sprout Lands/Sprite Basic/Tilesets/Water.png" id="5_grij7"]
 [ext_resource type="Texture2D" uid="uid://8iyajrlpk5k3" path="res://Sprout Lands/Sprite Basic/Objects/Basic_Grass_Biom_things.png" id="6_wbako"]
 [ext_resource type="PackedScene" uid="uid://dfdt2irfeb81e" path="res://scenes/tree.tscn" id="7_hcq0k"]
-[ext_resource type="PackedScene" uid="uid://d10m7ft86uq60" path="res://scenes/fruit.tscn" id="8_oambn"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ung5f"]
 tile_data = PackedInt32Array(0, 6, 0, 65536, 6, 1)
@@ -1256,6 +1255,3 @@ position = Vector2(-80, 176)
 
 [node name="Tree2" parent="." instance=ExtResource("7_hcq0k")]
 position = Vector2(26, 99)
-
-[node name="Fruit" parent="." instance=ExtResource("8_oambn")]
-position = Vector2(-43, 3)

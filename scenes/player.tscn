@@ -138,7 +138,7 @@ radius = 6.0
 height = 16.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ly4re"]
-size = Vector2(6, 6)
+size = Vector2(12.25, 12)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_45vhk")
@@ -159,12 +159,13 @@ position = Vector2(0, 14)
 script = ExtResource("3_savii")
 
 [node name="InteractDebug" type="Sprite2D" parent="InteractTrigger"]
+visible = false
 position = Vector2(0, -1)
 scale = Vector2(0.400001, 0.400001)
 texture = ExtResource("3_agqux")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractTrigger"]
-position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_ly4re")
 
-[connection signal="body_entered" from="InteractTrigger" to="AnimatedSprite2D" method="_on_interact_trigger_body_entered"]
+[connection signal="body_entered" from="InteractTrigger" to="InteractTrigger" method="_on_body_entered"]
+[connection signal="body_exited" from="InteractTrigger" to="InteractTrigger" method="_on_body_exited"]

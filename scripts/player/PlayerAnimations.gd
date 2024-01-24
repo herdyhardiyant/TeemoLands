@@ -7,21 +7,20 @@ func _process(_delta):
 	_character_animation()
 	
 func _character_animation():
-	if playerBody.velocity.y < 0:
+	if Input.is_action_pressed("up"):
 		play("walk_up")	
 		next_idle_animation = "idle_up"
-	elif playerBody.velocity.y > 0:
+	elif Input.is_action_pressed("down"):
 		play("walk_down")	
 		next_idle_animation = "idle_down"		
-	elif playerBody.velocity.x < 0:
+	elif Input.is_action_pressed("left"):
 		play("walk_left")			
 		next_idle_animation = "idle_left"		
-	elif playerBody.velocity.x > 0:
+	elif Input.is_action_pressed("right"):
 		play("walk_right")		
 		next_idle_animation = "idle_right"
 	else:
 		play(next_idle_animation)
 
 
-func _on_interact_trigger_body_entered(body):
-	print(body.name)
+		

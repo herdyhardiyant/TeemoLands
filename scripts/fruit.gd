@@ -12,5 +12,6 @@ func _process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	print("Player gets the fruit")
-	queue_free()
+	if "Player" in body.name:
+		print("Player gets the fruit")
+		queue_free()
