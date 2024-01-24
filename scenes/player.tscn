@@ -1,7 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://bfu0gy3qec6g5"]
+[gd_scene load_steps=20 format=3 uid="uid://bfu0gy3qec6g5"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_45vhk"]
 [ext_resource type="Texture2D" uid="uid://qlas41kupfh3" path="res://Sprout Lands/Sprite Basic/Characters/Basic Charakter Spritesheet.png" id="2_2lur8"]
+[ext_resource type="Texture2D" uid="uid://cgc5dmdr84sim" path="res://Sprout Lands/Sprite Basic/Objects/Egg_item.png" id="3_agqux"]
+[ext_resource type="Script" path="res://scenes/PlayerInteractTrigger.gd" id="3_savii"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u77q3"]
 atlas = ExtResource("2_2lur8")
@@ -134,6 +136,9 @@ animations = [{
 radius = 6.0
 height = 16.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ly4re"]
+size = Vector2(6, 6)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_45vhk")
 
@@ -141,8 +146,23 @@ script = ExtResource("1_45vhk")
 sprite_frames = SubResource("SpriteFrames_dmwus")
 animation = &"idle_down"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CharacterCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_67f3y")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+
+[node name="InteractTrigger" type="Area2D" parent="."]
+position = Vector2(0, 14)
+script = ExtResource("3_savii")
+
+[node name="InteractDebug" type="Sprite2D" parent="InteractTrigger"]
+position = Vector2(0, -1)
+scale = Vector2(0.400001, 0.400001)
+texture = ExtResource("3_agqux")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractTrigger"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_ly4re")
+
+[connection signal="body_entered" from="InteractTrigger" to="InteractTrigger" method="_on_body_entered"]
