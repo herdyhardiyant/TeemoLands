@@ -19,16 +19,16 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func character_animation():
-	if Input.is_action_pressed("up"):
+	if velocity.y < 0:
 		anim.play("walk_up")	
 		next_idle_animation = "idle_up"
-	elif Input.is_action_pressed("down"):
+	elif velocity.y > 0:
 		anim.play("walk_down")	
 		next_idle_animation = "idle_down"		
-	elif Input.is_action_pressed("left"):
+	elif velocity.x < 0:
 		anim.play("walk_left")			
 		next_idle_animation = "idle_left"		
-	elif Input.is_action_pressed("right"):
+	elif velocity.x > 0:
 		anim.play("walk_right")		
 		next_idle_animation = "idle_right"
 	else:
