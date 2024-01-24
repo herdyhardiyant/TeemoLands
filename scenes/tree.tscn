@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://dfdt2irfeb81e"]
 
-[ext_resource type="Script" path="res://scenes/tree.gd" id="1_1r1vi"]
 [ext_resource type="Texture2D" uid="uid://8iyajrlpk5k3" path="res://Sprout Lands/Sprite Basic/Objects/Basic_Grass_Biom_things.png" id="1_8nr3w"]
+[ext_resource type="Script" path="res://scripts/tree.gd" id="1_fjbrr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hih7l"]
 size = Vector2(10, 7)
 
 [node name="Tree" type="StaticBody2D"]
-script = ExtResource("1_1r1vi")
+script = ExtResource("1_fjbrr")
 
 [node name="Tree" type="Sprite2D" parent="."]
 visible = false

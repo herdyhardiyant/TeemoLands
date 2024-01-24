@@ -167,4 +167,4 @@ texture = ExtResource("3_agqux")
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_ly4re")
 
-[connection signal="body_entered" from="InteractTrigger" to="InteractTrigger" method="_on_body_entered"]
+[connection signal="body_entered" from="InteractTrigger" to="AnimatedSprite2D" method="_on_interact_trigger_body_entered"]

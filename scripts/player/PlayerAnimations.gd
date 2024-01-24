@@ -3,10 +3,10 @@ extends AnimatedSprite2D
 var next_idle_animation = "idle_down"
 @onready var playerBody = $".."
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	character_animation()
+func _process(_delta):
+	_character_animation()
 	
-func character_animation():
+func _character_animation():
 	if playerBody.velocity.y < 0:
 		play("walk_up")	
 		next_idle_animation = "idle_up"
@@ -21,3 +21,7 @@ func character_animation():
 		next_idle_animation = "idle_right"
 	else:
 		play(next_idle_animation)
+
+
+func _on_interact_trigger_body_entered(body):
+	print(body.name)
