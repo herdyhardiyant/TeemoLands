@@ -2,6 +2,10 @@ extends Area2D
 
 var interacted_object
 
+func _ready():
+	position.y = 14
+	position.y = 0	
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	_update_interact_position()
@@ -10,7 +14,7 @@ func _process(_delta):
 func _interact_the_object():
 	if interacted_object == null:
 		return
-	if Input.is_action_just_pressed("Interact"):
+	if Input.is_action_just_pressed("action"):
 		if interacted_object is TreeFarm:
 			interacted_object.interact()
 

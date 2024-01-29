@@ -1,10 +1,43 @@
-[gd_scene load_steps=21 format=3 uid="uid://bfu0gy3qec6g5"]
+[gd_scene load_steps=30 format=3 uid="uid://bfu0gy3qec6g5"]
 
 [ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_45vhk"]
 [ext_resource type="Texture2D" uid="uid://qlas41kupfh3" path="res://Sprout Lands/Sprite Basic/Characters/Basic Charakter Spritesheet.png" id="2_2lur8"]
+[ext_resource type="Texture2D" uid="uid://dl7errlsxdeec" path="res://Sprout Lands/Sprite Basic/Characters/Basic Charakter Actions.png" id="2_5u4lt"]
 [ext_resource type="Script" path="res://scripts/player/PlayerAnimations.gd" id="3_0ijd3"]
 [ext_resource type="Texture2D" uid="uid://cgc5dmdr84sim" path="res://Sprout Lands/Sprite Basic/Objects/Egg_item.png" id="3_agqux"]
 [ext_resource type="Script" path="res://scripts/player/PlayerInteractTrigger.gd" id="3_savii"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46x4b"]
+atlas = ExtResource("2_5u4lt")
+region = Rect2(0, 192, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vodj2"]
+atlas = ExtResource("2_5u4lt")
+region = Rect2(48, 192, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dd8c8"]
+atlas = ExtResource("2_5u4lt")
+region = Rect2(0, 288, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksobi"]
+atlas = ExtResource("2_5u4lt")
+region = Rect2(48, 288, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uoyd5"]
+atlas = ExtResource("2_5u4lt")
+region = Rect2(0, 336, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bd7v3"]
+atlas = ExtResource("2_5u4lt")
+region = Rect2(48, 336, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_euorr"]
+atlas = ExtResource("2_5u4lt")
+region = Rect2(0, 240, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6ahr"]
+atlas = ExtResource("2_5u4lt")
+region = Rect2(48, 240, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u77q3"]
 atlas = ExtResource("2_2lur8")
@@ -56,6 +89,50 @@ region = Rect2(144, 48, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dmwus"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46x4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vodj2")
+}],
+"loop": false,
+"name": &"axe_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dd8c8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksobi")
+}],
+"loop": false,
+"name": &"axe_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uoyd5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bd7v3")
+}],
+"loop": false,
+"name": &"axe_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_euorr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6ahr")
+}],
+"loop": false,
+"name": &"axe_up",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u77q3")
@@ -138,14 +215,14 @@ radius = 6.0
 height = 16.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ly4re"]
-size = Vector2(12.25, 12)
+size = Vector2(14.5625, 13.5)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_45vhk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dmwus")
-animation = &"idle_down"
+animation = &"axe_up"
 script = ExtResource("3_0ijd3")
 
 [node name="CharacterCollision" type="CollisionShape2D" parent="."]
@@ -165,7 +242,11 @@ scale = Vector2(0.400001, 0.400001)
 texture = ExtResource("3_agqux")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractTrigger"]
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_ly4re")
 
+[connection signal="animation_finished" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_animation_finished"]
+[connection signal="body_entered" from="InteractTrigger" to="AnimatedSprite2D" method="_on_interact_trigger_body_entered"]
 [connection signal="body_entered" from="InteractTrigger" to="InteractTrigger" method="_on_body_entered"]
+[connection signal="body_exited" from="InteractTrigger" to="AnimatedSprite2D" method="_on_interact_trigger_body_exited"]
 [connection signal="body_exited" from="InteractTrigger" to="InteractTrigger" method="_on_body_exited"]
