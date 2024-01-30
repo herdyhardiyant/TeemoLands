@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bfu0gy3qec6g5"]
+[gd_scene load_steps=31 format=3 uid="uid://bfu0gy3qec6g5"]
 
 [ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_45vhk"]
 [ext_resource type="Texture2D" uid="uid://qlas41kupfh3" path="res://Sprout Lands/Sprite Basic/Characters/Basic Charakter Spritesheet.png" id="2_2lur8"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/player/PlayerAnimations.gd" id="3_0ijd3"]
 [ext_resource type="Texture2D" uid="uid://cgc5dmdr84sim" path="res://Sprout Lands/Sprite Basic/Objects/Egg_item.png" id="3_agqux"]
 [ext_resource type="Script" path="res://scripts/player/PlayerInteractTrigger.gd" id="3_savii"]
+[ext_resource type="PackedScene" uid="uid://bcvcnn063vtjm" path="res://scenes/joystick.tscn" id="5_mn2qa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_46x4b"]
 atlas = ExtResource("2_5u4lt")
@@ -215,14 +216,14 @@ radius = 6.0
 height = 16.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ly4re"]
-size = Vector2(14.5625, 13.5)
+size = Vector2(10.2812, 9.75)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_45vhk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dmwus")
-animation = &"axe_up"
+animation = &"idle_down"
 script = ExtResource("3_0ijd3")
 
 [node name="CharacterCollision" type="CollisionShape2D" parent="."]
@@ -230,6 +231,9 @@ shape = SubResource("CapsuleShape2D_67f3y")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+
+[node name="Joystick" parent="Camera2D" instance=ExtResource("5_mn2qa")]
+position = Vector2(-131, 85)
 
 [node name="InteractTrigger" type="Area2D" parent="."]
 position = Vector2(0, 14)
@@ -242,7 +246,7 @@ scale = Vector2(0.400001, 0.400001)
 texture = ExtResource("3_agqux")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractTrigger"]
-position = Vector2(0, 1)
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_ly4re")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_animation_finished"]

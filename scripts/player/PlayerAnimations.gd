@@ -1,7 +1,7 @@
 extends AnimatedSprite2D
 
 var next_idle_animation = "idle_down"
-@onready var playerBody = $".."
+@onready var playerBody:Player = $".."
 
 var current_rotation = Vector2.DOWN
 var _is_animate_action = false
@@ -24,13 +24,13 @@ func _action_animations():
 
 
 func _get_player_rotation():
-	if Input.is_action_pressed("up"):
+	if playerBody.velocity.y < 0:
 		current_rotation = Vector2.UP
-	elif Input.is_action_pressed("down"):
+	elif playerBody.velocity.y > 0:
 		current_rotation = Vector2.DOWN	
-	elif Input.is_action_pressed("left"):
+	elif playerBody.velocity.x < 0:
 		current_rotation = Vector2.LEFT
-	elif Input.is_action_pressed("right"):
+	elif playerBody.velocity.x > 0:
 		current_rotation = Vector2.RIGHT
 
 func _animate_axe_swing():
@@ -47,17 +47,17 @@ func _animate_axe_swing():
 
 
 func _movement_animation():
-	if Input.is_action_pressed("up"):
-		play("walk_up")	
-	elif Input.is_action_pressed("down"):
-		play("walk_down")	
-	elif Input.is_action_pressed("left"):
-		play("walk_left")			
-	elif Input.is_action_pressed("right"):
-		play("walk_right")		
-	else:
+	if !playerBody.is_moving:
 		_idle_animtaion()
-
+		return
+	if current_rotation == Vector2.UP:
+		play("walk_up")
+	elif current_rotation == Vector2.DOWN:
+		play("walk_down")
+	elif current_rotation == Vector2.LEFT:
+		play("walk_left")
+	elif current_rotation == Vector2.RIGHT:
+		play("walk_right")
 
 func _idle_animtaion():
 	if current_rotation == Vector2.UP:
@@ -68,7 +68,6 @@ func _idle_animtaion():
 		play("idle_right")
 	elif current_rotation == Vector2.LEFT:
 		play("idle_left")
-
 
 func _on_animation_finished():
 	_is_animate_action = false
