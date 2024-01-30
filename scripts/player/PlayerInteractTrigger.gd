@@ -1,10 +1,10 @@
 extends Area2D
 
 var interacted_object
-
+@onready var player = $".."
 func _ready():
 	position.y = 14
-	position.y = 0	
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -19,12 +19,14 @@ func _interact_the_object():
 			interacted_object.interact()
 
 func _update_interact_position():
-	var input_rotation = Input.get_vector("left", "right", "up", "down")
+	var velocity: Vector2 = player.velocity
+	var input_rotation: Vector2 = velocity.normalized()
 	if input_rotation == Vector2.ZERO:
 		return
 	position = input_rotation * 14
 
 func _on_body_entered(body):
+	print(body.name)
 	interacted_object = body
 
 func _on_body_exited(_body):

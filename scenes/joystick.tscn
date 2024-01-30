@@ -3,9 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ckvxv67lk3l1g" path="res://Sprout Lands/UI/UI Settings Buttons.png" id="1_114e0"]
 [ext_resource type="Script" path="res://scripts/Knob.gd" id="2_kao85"]
 
-[node name="Joystick" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[node name="Joystick" type="Node2D"]
 
 [node name="Knob" type="Sprite2D" parent="."]
 z_index = 10
@@ -16,7 +14,6 @@ script = ExtResource("2_kao85")
 
 [node name="Button" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
-layout_mode = 0
 offset_left = -9.0
 offset_top = -9.0
 offset_right = 9.0

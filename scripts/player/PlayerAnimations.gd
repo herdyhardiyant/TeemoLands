@@ -1,9 +1,11 @@
 extends AnimatedSprite2D
 
 var next_idle_animation = "idle_down"
+
 @onready var playerBody:Player = $".."
 
 var current_rotation = Vector2.DOWN
+
 var _is_animate_action = false
 
 var _is_interacting_tree = false
@@ -44,8 +46,6 @@ func _animate_axe_swing():
 	elif current_rotation == Vector2.LEFT:
 		play("axe_left")
 		
-
-
 func _movement_animation():
 	if !playerBody.is_moving:
 		_idle_animtaion()
@@ -69,6 +69,28 @@ func _idle_animtaion():
 	elif current_rotation == Vector2.LEFT:
 		play("idle_left")
 
+func _animate_hoe_swing():
+	_is_animate_action = true
+	if current_rotation == Vector2.UP:
+		play("hoe_up")
+	elif current_rotation == Vector2.DOWN:
+		play("hoe_down")
+	elif current_rotation == Vector2.RIGHT:
+		play("hoe_right")
+	elif current_rotation == Vector2.LEFT:
+		play("hoe_left")
+		
+func _animate_watering():
+	_is_animate_action = true
+	if current_rotation == Vector2.UP:
+		play("watering_up")
+	elif current_rotation == Vector2.DOWN:
+		play("watering_down")
+	elif current_rotation == Vector2.RIGHT:
+		play("watering_right")
+	elif current_rotation == Vector2.LEFT:
+		play("watering_left")
+
 func _on_animation_finished():
 	_is_animate_action = false
 
@@ -78,3 +100,12 @@ func _on_interact_trigger_body_entered(body):
 
 func _on_interact_trigger_body_exited(_body):
 	_is_interacting_tree = false
+
+func _on_axe_button_down():
+	_animate_axe_swing()
+
+func _on_hoe_button_down():
+	_animate_hoe_swing()
+
+func _on_watering_button_down():
+	_animate_watering()

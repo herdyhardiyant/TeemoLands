@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://di7lo014qb57e"]
+
+[ext_resource type="PackedScene" uid="uid://bcvcnn063vtjm" path="res://scenes/joystick.tscn" id="1_0q7ok"]
+[ext_resource type="PackedScene" uid="uid://cboqr7surpxdc" path="res://scenes/actions.tscn" id="2_22gow"]
+
+[node name="UI" type="CanvasLayer"]
+follow_viewport_enabled = true
+
+[node name="Joystick" parent="." instance=ExtResource("1_0q7ok")]
+position = Vector2(151, 594)
+
+[node name="Actions" parent="." instance=ExtResource("2_22gow")]
+position = Vector2(1117, 613)

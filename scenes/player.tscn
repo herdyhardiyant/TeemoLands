@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bfu0gy3qec6g5"]
+[gd_scene load_steps=48 format=3 uid="uid://bfu0gy3qec6g5"]
 
 [ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_45vhk"]
 [ext_resource type="Texture2D" uid="uid://qlas41kupfh3" path="res://Sprout Lands/Sprite Basic/Characters/Basic Charakter Spritesheet.png" id="2_2lur8"]
@@ -40,6 +40,38 @@ region = Rect2(0, 240, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_n6ahr"]
 atlas = ExtResource("2_5u4lt")
 region = Rect2(48, 240, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3opw6"]
+atlas = ExtResource("2_5u4lt")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2wah"]
+atlas = ExtResource("2_5u4lt")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rke5h"]
+atlas = ExtResource("2_5u4lt")
+region = Rect2(0, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vy2gj"]
+atlas = ExtResource("2_5u4lt")
+region = Rect2(48, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgk8t"]
+atlas = ExtResource("2_5u4lt")
+region = Rect2(0, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2erui"]
+atlas = ExtResource("2_5u4lt")
+region = Rect2(48, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pirse"]
+atlas = ExtResource("2_5u4lt")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7joff"]
+atlas = ExtResource("2_5u4lt")
+region = Rect2(48, 48, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u77q3"]
 atlas = ExtResource("2_2lur8")
@@ -89,6 +121,38 @@ region = Rect2(96, 48, 48, 48)
 atlas = ExtResource("2_2lur8")
 region = Rect2(144, 48, 48, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_rq5op"]
+atlas = ExtResource("2_5u4lt")
+region = Rect2(0, 384, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmbtq"]
+atlas = ExtResource("2_5u4lt")
+region = Rect2(48, 384, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4f3v"]
+atlas = ExtResource("2_5u4lt")
+region = Rect2(0, 480, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6671"]
+atlas = ExtResource("2_5u4lt")
+region = Rect2(48, 480, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kr4s6"]
+atlas = ExtResource("2_5u4lt")
+region = Rect2(0, 528, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mw8i"]
+atlas = ExtResource("2_5u4lt")
+region = Rect2(48, 528, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_seaf3"]
+atlas = ExtResource("2_5u4lt")
+region = Rect2(0, 432, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1siit"]
+atlas = ExtResource("2_5u4lt")
+region = Rect2(48, 432, 48, 48)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_dmwus"]
 animations = [{
 "frames": [{
@@ -133,6 +197,50 @@ animations = [{
 }],
 "loop": false,
 "name": &"axe_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3opw6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2wah")
+}],
+"loop": false,
+"name": &"hoe_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rke5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vy2gj")
+}],
+"loop": false,
+"name": &"hoe_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgk8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2erui")
+}],
+"loop": false,
+"name": &"hoe_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pirse")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7joff")
+}],
+"loop": false,
+"name": &"hoe_up",
 "speed": 5.0
 }, {
 "frames": [{
@@ -210,6 +318,50 @@ animations = [{
 "loop": true,
 "name": &"walk_up",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rq5op")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmbtq")
+}],
+"loop": false,
+"name": &"watering_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4f3v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6671")
+}],
+"loop": false,
+"name": &"watering_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kr4s6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mw8i")
+}],
+"loop": false,
+"name": &"watering_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_seaf3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1siit")
+}],
+"loop": false,
+"name": &"watering_up",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_67f3y"]
@@ -234,20 +386,16 @@ shape = SubResource("CapsuleShape2D_67f3y")
 zoom = Vector2(3, 3)
 
 [node name="Actions" parent="Camera2D" instance=ExtResource("5_4c33u")]
-position = Vector2(121, 77)
+position = Vector2(136, 66)
 
 [node name="Joystick" parent="Camera2D" instance=ExtResource("5_mn2qa")]
-offset_left = -108.0
-offset_top = 76.0
-offset_right = -108.0
-offset_bottom = 76.0
+position = Vector2(-133, 65)
 
 [node name="InteractTrigger" type="Area2D" parent="."]
-position = Vector2(0, 14)
+position = Vector2(0, 16)
 script = ExtResource("3_savii")
 
 [node name="InteractDebug" type="Sprite2D" parent="InteractTrigger"]
-visible = false
 position = Vector2(0, -1)
 scale = Vector2(0.400001, 0.400001)
 texture = ExtResource("3_agqux")
@@ -257,7 +405,16 @@ position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_ly4re")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_animation_finished"]
+[connection signal="button_down" from="Camera2D/Actions/AxeButton/Button" to="AnimatedSprite2D" method="_on_axe_button_down"]
+[connection signal="button_down" from="Camera2D/Actions/HoeButton/Button" to="AnimatedSprite2D" method="_on_hoe_button_down"]
+[connection signal="button_down" from="Camera2D/Actions/WaterButton/Button" to="AnimatedSprite2D" method="_on_watering_button_down"]
 [connection signal="body_entered" from="InteractTrigger" to="AnimatedSprite2D" method="_on_interact_trigger_body_entered"]
 [connection signal="body_entered" from="InteractTrigger" to="InteractTrigger" method="_on_body_entered"]
 [connection signal="body_exited" from="InteractTrigger" to="AnimatedSprite2D" method="_on_interact_trigger_body_exited"]
 [connection signal="body_exited" from="InteractTrigger" to="InteractTrigger" method="_on_body_exited"]
+
+[editable path="Camera2D/Actions"]
+[editable path="Camera2D/Actions/AxeButton"]
+[editable path="Camera2D/Actions/HandButton"]
+[editable path="Camera2D/Actions/HoeButton"]
+[editable path="Camera2D/Actions/WaterButton"]
