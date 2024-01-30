@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://cboqr7surpxdc"]
+
+[ext_resource type="Texture2D" uid="uid://coji68j5q1k8k" path="res://Sprout Lands/UI/Mouse sprites/Catpaw Mouse icon.png" id="2_48q5g"]
+[ext_resource type="PackedScene" uid="uid://cu662ko1dt45t" path="res://scenes/action_button.tscn" id="2_wi6t7"]
+
+[node name="Actions" type="Node2D"]
+
+[node name="AxeButton" parent="." instance=ExtResource("2_wi6t7")]
+position = Vector2(-20, 0)
+
+[node name="ButtonNormal" parent="AxeButton" index="0"]
+region_rect = Rect2(613.782, 36.903, 20.4385, 21.256)
+
+[node name="ButtonPressed" parent="AxeButton" index="1"]
+region_rect = Rect2(518.729, 39.1343, 18.3777, 19.1885)
+
+[node name="HandButton" parent="." instance=ExtResource("2_wi6t7")]
+position = Vector2(0, 20)
+
+[node name="CatpawMouseIcon" type="Sprite2D" parent="HandButton"]
+texture = ExtResource("2_48q5g")
+
+[node name="HoeButton" parent="." instance=ExtResource("2_wi6t7")]
+position = Vector2(20, 0)
+
+[node name="ButtonNormal" parent="HoeButton" index="0"]
+region_rect = Rect2(645.566, 4.62105, 20.8101, 21.756)
+
+[node name="ButtonPressed" parent="HoeButton" index="1"]
+region_rect = Rect2(550.673, 6.40505, 18.648, 20.2696)
+
+[node name="WaterButton" parent="." instance=ExtResource("2_wi6t7")]
+position = Vector2(0, -20)
+
+[node name="ButtonNormal" parent="WaterButton" index="0"]
+region_rect = Rect2(677.727, 4.67497, 20.5399, 21.756)
+
+[node name="ButtonPressed" parent="WaterButton" index="1"]
+region_rect = Rect2(582.782, 6.6748, 18.5129, 19.7291)
+
+[editable path="AxeButton"]
+[editable path="HandButton"]
+[editable path="HoeButton"]
+[editable path="WaterButton"]

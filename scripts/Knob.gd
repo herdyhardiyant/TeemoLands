@@ -18,18 +18,17 @@ func get_axis() -> Vector2:
 		axis.x = 0
 	if abs(axis.y) < dead_zone:
 		axis.y = 0
+	
+	axis.ceil()
 	return axis
 	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	get_axis()
 	if is_pressing:
 		_move_knob_to_mouse()
 	else:
 		_reset_knob_position(delta)
-
-
 
 func _move_knob_to_mouse():
 	if get_global_mouse_position().distance_to(parent.global_position) <= max_length:

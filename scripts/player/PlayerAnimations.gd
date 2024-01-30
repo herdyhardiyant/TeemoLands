@@ -76,5 +76,5 @@ func _on_interact_trigger_body_entered(body):
 	if body is TreeFarm:
 		_is_interacting_tree = true
 
-func _on_interact_trigger_body_exited(body):
+func _on_interact_trigger_body_exited(_body):
 	_is_interacting_tree = false

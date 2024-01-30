@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://cu662ko1dt45t"]
+
+[ext_resource type="Texture2D" uid="uid://d0ly046quxml1" path="res://Sprout Lands/UI/Sprite sheet for Basic Pack.png" id="1_rpa1i"]
+[ext_resource type="Script" path="res://scripts/ActionButton.gd" id="2_665f3"]
+
+[node name="ActionButton" type="Node2D"]
+
+[node name="ButtonNormal" type="Sprite2D" parent="."]
+texture = ExtResource("1_rpa1i")
+region_enabled = true
+region_rect = Rect2(614.016, 4.86611, 20.1159, 21.3506)
+
+[node name="ButtonPressed" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_rpa1i")
+region_enabled = true
+region_rect = Rect2(518.784, 7.05847, 18.5129, 19.3237)
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+script = ExtResource("2_665f3")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="button_down" from="Button" to="Button" method="_on_button_down"]
+[connection signal="button_up" from="Button" to="Button" method="_on_button_up"]
