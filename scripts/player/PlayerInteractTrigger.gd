@@ -9,14 +9,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	_update_interact_position()
-	_interact_the_object()
-
-func _interact_the_object():
-	if interacted_object == null:
-		return
-	if Input.is_action_just_pressed("action"):
-		if interacted_object is TreeFarm:
-			interacted_object.interact()
 
 func _update_interact_position():
 	var velocity: Vector2 = player.velocity
@@ -26,8 +18,16 @@ func _update_interact_position():
 	position = input_rotation * 14
 
 func _on_body_entered(body):
-	print(body.name)
 	interacted_object = body
 
 func _on_body_exited(_body):
 	interacted_object = null
+	
+func _on_hand_button_pressed():
+	_interact_the_object()
+
+func _interact_the_object():
+	if interacted_object == null:
+		return
+	if interacted_object is TreeFarm:
+		interacted_object.interact()

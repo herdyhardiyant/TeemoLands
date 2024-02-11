@@ -393,19 +393,24 @@ position = Vector2(-133, 65)
 
 [node name="InteractTrigger" type="Area2D" parent="."]
 position = Vector2(0, 16)
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("3_savii")
 
 [node name="InteractDebug" type="Sprite2D" parent="InteractTrigger"]
+visible = false
 position = Vector2(0, -1)
 scale = Vector2(0.400001, 0.400001)
 texture = ExtResource("3_agqux")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractTrigger"]
+modulate = Color(1, 1, 0, 1)
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_ly4re")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_animation_finished"]
 [connection signal="button_down" from="Camera2D/Actions/AxeButton/Button" to="AnimatedSprite2D" method="_on_axe_button_down"]
+[connection signal="pressed" from="Camera2D/Actions/HandButton/Button" to="InteractTrigger" method="_on_hand_button_pressed"]
 [connection signal="button_down" from="Camera2D/Actions/HoeButton/Button" to="AnimatedSprite2D" method="_on_hoe_button_down"]
 [connection signal="button_down" from="Camera2D/Actions/WaterButton/Button" to="AnimatedSprite2D" method="_on_watering_button_down"]
 [connection signal="body_entered" from="InteractTrigger" to="AnimatedSprite2D" method="_on_interact_trigger_body_entered"]

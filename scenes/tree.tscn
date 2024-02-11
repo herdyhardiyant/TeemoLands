@@ -11,13 +11,11 @@ script = ExtResource("1_fjbrr")
 
 [node name="TreeNoFruits" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(0, -1)
 texture = ExtResource("1_8nr3w")
 region_enabled = true
 region_rect = Rect2(19.5427, 0.44067, 24.8506, 30.2692)
 
 [node name="TreeWithFruits" type="Sprite2D" parent="."]
-position = Vector2(0, -1)
 texture = ExtResource("1_8nr3w")
 region_enabled = true
 region_rect = Rect2(51.6733, 0.44067, 24.6748, 30.2692)
