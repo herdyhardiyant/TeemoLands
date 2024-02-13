@@ -20,17 +20,24 @@ texture = ExtResource("1_8nr3w")
 region_enabled = true
 region_rect = Rect2(51.6733, 0.44067, 24.6748, 30.2692)
 
+[node name="TreeTrunk" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 10)
+texture = ExtResource("1_8nr3w")
+region_enabled = true
+region_rect = Rect2(66.9705, 35.7285, 9.99966, 10.6753)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 11)
 shape = SubResource("RectangleShape2D_hih7l")
 
-[node name="FruitsPosition" type="Node2D" parent="."]
+[node name="ItemDropPosition" type="Node2D" parent="."]
 
-[node name="FruitSpawnPosition0" type="Node2D" parent="FruitsPosition"]
+[node name="Position0" type="Node2D" parent="ItemDropPosition"]
 position = Vector2(-17, 12)
 
-[node name="FruitSpawnPosition1" type="Node2D" parent="FruitsPosition"]
+[node name="Position1" type="Node2D" parent="ItemDropPosition"]
 position = Vector2(0, 25)
 
-[node name="FruitSpawnPosition2" type="Node2D" parent="FruitsPosition"]
+[node name="Position2" type="Node2D" parent="ItemDropPosition"]
 position = Vector2(16, 11)

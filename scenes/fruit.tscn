@@ -1,29 +1,5 @@
-[gd_scene load_steps=4 format=3 uid="uid://d10m7ft86uq60"]
+[gd_scene load_steps=2 format=3 uid="uid://uc3b7bwdeo04"]
 
-[ext_resource type="Script" path="res://scripts/fruit.gd" id="1_tqh7e"]
-[ext_resource type="Texture2D" uid="uid://8iyajrlpk5k3" path="res://Sprout Lands/Sprite Basic/Objects/Basic_Grass_Biom_things.png" id="1_twa8p"]
+[ext_resource type="PackedScene" uid="uid://4r5o7ai7kyvs" path="res://scenes/item_drop.tscn" id="1_18t2o"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_easlp"]
-size = Vector2(13, 14)
-
-[node name="Fruit" type="Node2D"]
-script = ExtResource("1_tqh7e")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_twa8p")
-region_enabled = true
-region_rect = Rect2(33.0243, 32.8261, 13.7106, 14.1459)
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_easlp")
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
-one_shot = true
-autostart = true
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="ItemDrop" instance=ExtResource("1_18t2o")]

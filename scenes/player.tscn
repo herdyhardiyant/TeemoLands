@@ -371,7 +371,7 @@ height = 16.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ly4re"]
 size = Vector2(10.2812, 9.75)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="CharacterPlayer" type="CharacterBody2D"]
 script = ExtResource("1_45vhk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -410,6 +410,7 @@ shape = SubResource("RectangleShape2D_ly4re")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_animation_finished"]
 [connection signal="button_down" from="Camera2D/Actions/AxeButton/Button" to="AnimatedSprite2D" method="_on_axe_button_down"]
+[connection signal="pressed" from="Camera2D/Actions/AxeButton/Button" to="InteractTrigger" method="_on_axe_button_pressed"]
 [connection signal="pressed" from="Camera2D/Actions/HandButton/Button" to="InteractTrigger" method="_on_hand_button_pressed"]
 [connection signal="button_down" from="Camera2D/Actions/HoeButton/Button" to="AnimatedSprite2D" method="_on_hoe_button_down"]
 [connection signal="button_down" from="Camera2D/Actions/WaterButton/Button" to="AnimatedSprite2D" method="_on_watering_button_down"]

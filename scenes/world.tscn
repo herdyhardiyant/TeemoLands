@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://77bx1edu1efh"]
+[gd_scene load_steps=21 format=3 uid="uid://77bx1edu1efh"]
 
 [ext_resource type="PackedScene" uid="uid://bfu0gy3qec6g5" path="res://scenes/player.tscn" id="1_05yus"]
 [ext_resource type="Texture2D" uid="uid://bct4l5i8vfaab" path="res://Sprout Lands/Sprite Basic/Tilesets/Grass.png" id="2_8c1s8"]
@@ -7,6 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://f62gafq0m484" path="res://Sprout Lands/Sprite Basic/Tilesets/Water.png" id="5_grij7"]
 [ext_resource type="Texture2D" uid="uid://8iyajrlpk5k3" path="res://Sprout Lands/Sprite Basic/Objects/Basic_Grass_Biom_things.png" id="6_wbako"]
 [ext_resource type="PackedScene" uid="uid://dfdt2irfeb81e" path="res://scenes/tree.tscn" id="7_hcq0k"]
+[ext_resource type="Texture2D" uid="uid://dswmwvvk35eoq" path="res://Sprout Lands/Sprite Basic/Objects/Wood_Bridge.png" id="8_ffhru"]
+[ext_resource type="Texture2D" uid="uid://cad6xqw3mm3ec" path="res://Sprout Lands/Sprite Basic/Objects/Paths.png" id="9_t7mw5"]
+[ext_resource type="Texture2D" uid="uid://ophcogunsy87" path="res://Sprout Lands/Sprite Basic/Objects/Free_Chicken_House.png" id="10_83d1g"]
+[ext_resource type="PackedScene" uid="uid://uc3b7bwdeo04" path="res://scenes/fruit.tscn" id="11_3gu0m"]
+[ext_resource type="PackedScene" uid="uid://babc7bafygmq6" path="res://scenes/wood.tscn" id="12_av3j6"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ung5f"]
 tile_data = PackedInt32Array(0, 6, 0, 65536, 6, 1)
@@ -1254,7 +1259,8 @@ pattern_1 = SubResource("TileMapPattern_yafev")
 [node name="World" type="Node"]
 metadata/_edit_vertical_guides_ = [-379.0]
 
-[node name="Player" parent="." instance=ExtResource("1_05yus")]
+[node name="CharacterPlayer" parent="." instance=ExtResource("1_05yus")]
+unique_name_in_owner = true
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_wbln3")
@@ -1275,3 +1281,25 @@ position = Vector2(-80, 176)
 
 [node name="Tree2" parent="Foliages" instance=ExtResource("7_hcq0k")]
 position = Vector2(26, 99)
+
+[node name="WoodBridge" type="Sprite2D" parent="."]
+position = Vector2(-123, 14)
+texture = ExtResource("8_ffhru")
+
+[node name="Paths" type="Sprite2D" parent="."]
+position = Vector2(-89, -55)
+texture = ExtResource("9_t7mw5")
+
+[node name="FreeChickenHouse" type="Sprite2D" parent="."]
+position = Vector2(29, -92)
+texture = ExtResource("10_83d1g")
+
+[node name="FreeChickenHouse2" type="Sprite2D" parent="."]
+position = Vector2(190, -96)
+texture = ExtResource("10_83d1g")
+
+[node name="ItemDrop" parent="." instance=ExtResource("11_3gu0m")]
+position = Vector2(53, -23)
+
+[node name="ItemDrop2" parent="." instance=ExtResource("12_av3j6")]
+position = Vector2(-34, -23)

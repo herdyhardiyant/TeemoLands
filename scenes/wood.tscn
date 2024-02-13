@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://babc7bafygmq6"]
+
+[ext_resource type="PackedScene" uid="uid://4r5o7ai7kyvs" path="res://scenes/item_drop.tscn" id="1_35h63"]
+[ext_resource type="Texture2D" uid="uid://h6jyucx4vh7x" path="res://Sprout Lands/Sprite Basic/Objects/Basic_tools_and_meterials.png" id="1_qk5aq"]
+
+[node name="ItemDrop" instance=ExtResource("1_35h63")]
+
+[node name="ItemSprite" parent="." index="0"]
+texture = ExtResource("1_qk5aq")
+region_rect = Rect2(16.9732, 16.9698, 12.9725, 14.1887)
