@@ -16,13 +16,6 @@ func _update_interact_position():
 		return
 	position = input_rotation * 14
 
-
-func _on_body_entered(body):
-	interacted_object = body
-
-func _on_body_exited(_body):
-	interacted_object = null
-	
 func _on_hand_button_pressed():
 	_interact_the_object()
 
@@ -32,9 +25,14 @@ func _interact_the_object():
 	if interacted_object is TreeFarm:
 		interacted_object.interact()
 
-
 func _on_axe_button_pressed():
 	if interacted_object == null:
 		return
 	if interacted_object is TreeFarm:
 		interacted_object.cut_tree()
+
+func _on_area_entered(area: Area2D) -> void:
+	interacted_object = area.get_parent()
+
+func _on_area_exited(_area: Area2D) -> void:
+	interacted_object = null

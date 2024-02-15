@@ -11,9 +11,6 @@ const SPEED = 5000.0
 var move_direction = Vector2.ZERO
 var is_moving = false
 
-func _ready() -> void:
-	print(self.get_path()) 
-
 func _physics_process(delta: float) -> void:
 	#var rotation_direction = Input.get_vector("left", "right", "up", "down")
 	var rotation_direction = joystick.get_axis()

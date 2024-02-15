@@ -414,10 +414,8 @@ shape = SubResource("RectangleShape2D_ly4re")
 [connection signal="pressed" from="Camera2D/Actions/HandButton/Button" to="InteractTrigger" method="_on_hand_button_pressed"]
 [connection signal="button_down" from="Camera2D/Actions/HoeButton/Button" to="AnimatedSprite2D" method="_on_hoe_button_down"]
 [connection signal="button_down" from="Camera2D/Actions/WaterButton/Button" to="AnimatedSprite2D" method="_on_watering_button_down"]
-[connection signal="body_entered" from="InteractTrigger" to="AnimatedSprite2D" method="_on_interact_trigger_body_entered"]
-[connection signal="body_entered" from="InteractTrigger" to="InteractTrigger" method="_on_body_entered"]
-[connection signal="body_exited" from="InteractTrigger" to="AnimatedSprite2D" method="_on_interact_trigger_body_exited"]
-[connection signal="body_exited" from="InteractTrigger" to="InteractTrigger" method="_on_body_exited"]
+[connection signal="area_entered" from="InteractTrigger" to="InteractTrigger" method="_on_area_entered"]
+[connection signal="area_exited" from="InteractTrigger" to="InteractTrigger" method="_on_area_exited"]
 
 [editable path="Camera2D/Actions"]
 [editable path="Camera2D/Actions/AxeButton"]

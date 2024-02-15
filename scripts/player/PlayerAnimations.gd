@@ -8,21 +8,12 @@ var current_rotation = Vector2.DOWN
 
 var _is_animate_action = false
 
-var _is_interacting_tree = false
-
 func _process(_delta):
 	_get_player_rotation()	
-	
-	if Input.is_action_just_pressed("action"):
-		_action_animations()
 	
 	if _is_animate_action == false:
 		_movement_animation()
 	
-
-func _action_animations():
-	if _is_interacting_tree:
-		_animate_axe_swing()
 
 
 func _get_player_rotation():
@@ -93,13 +84,6 @@ func _animate_watering():
 
 func _on_animation_finished():
 	_is_animate_action = false
-
-func _on_interact_trigger_body_entered(body):
-	if body is TreeFarm:
-		_is_interacting_tree = true
-
-func _on_interact_trigger_body_exited(_body):
-	_is_interacting_tree = false
 
 func _on_axe_button_down():
 	_animate_axe_swing()
