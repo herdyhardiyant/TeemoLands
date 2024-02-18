@@ -15,21 +15,29 @@ func _ready():
 	tree_health = 5
 
 func cut_tree():
+	
+	if tree_trunk.visible:
+		_shake_tree()
+		return
+		
 	tree_health -= 1
 	_drop_fruit()
 	_shake_tree()
+	
+
 	if tree_health <= 0:
 		tree_health = 0
 		_drop_woods()
 		_switch_sprite_to_tree_trunk()
 
-func _drop_woods():
-	var wood_scene = preload("res://scenes/wood.tscn")
-	_spawn_drop(wood_scene)
-
 func interact():
 	_drop_fruit()
 	_shake_tree()
+
+
+func _drop_woods():
+	var wood_scene = preload("res://scenes/wood.tscn")
+	_spawn_drop(wood_scene)
 
 
 func _drop_fruit():

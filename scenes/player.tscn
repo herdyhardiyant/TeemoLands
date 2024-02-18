@@ -376,7 +376,7 @@ script = ExtResource("1_45vhk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dmwus")
-animation = &"idle_down"
+animation = &"axe_up"
 script = ExtResource("3_0ijd3")
 
 [node name="CharacterCollision" type="CollisionShape2D" parent="."]
@@ -409,8 +409,9 @@ position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_ly4re")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_animation_finished"]
+[connection signal="frame_changed" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_frame_changed"]
+[connection signal="on_action_finish" from="AnimatedSprite2D" to="InteractTrigger" method="_on_animated_sprite_2d_on_action_finish"]
 [connection signal="button_down" from="Camera2D/Actions/AxeButton/Button" to="AnimatedSprite2D" method="_on_axe_button_down"]
-[connection signal="pressed" from="Camera2D/Actions/AxeButton/Button" to="InteractTrigger" method="_on_axe_button_pressed"]
 [connection signal="pressed" from="Camera2D/Actions/HandButton/Button" to="InteractTrigger" method="_on_hand_button_pressed"]
 [connection signal="button_down" from="Camera2D/Actions/HoeButton/Button" to="AnimatedSprite2D" method="_on_hoe_button_down"]
 [connection signal="button_down" from="Camera2D/Actions/WaterButton/Button" to="AnimatedSprite2D" method="_on_watering_button_down"]
